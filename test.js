@@ -5,10 +5,13 @@ var NoteApp = require('./lib/noteapplication.js');
 var Note = require('./lib/note.js');
 
 describe('Notes creation works correctly',function(){
-	it('Should make sure the correct type of input is passed.',function(){		
-		var noteContent = new Note(1,'obinna','i have a dream');			
+	var noteContent = new Note(1,'obinna','i have a dream');
+	it('Should make sure the correct type of input is passed.',function(){					
 		assert(noteContent.id === 1);
-		assert(noteContent.author === 'obinna')
+		assert(noteContent.author === 'obinna');
+	})
+
+	it('should identify type of input', function(){
 		assert(typeof noteContent.id === 'number');
 		assert(typeof noteContent.content === 'string');
 	})
@@ -20,6 +23,10 @@ describe('Note application increments number of notes as notes are added ',funct
 
 	it('identifies the note list is empty',function(){		
 		assert(noteApp.allNotes.length === 0);
+	})
+
+	it('identifies the note list is empty',function(){		
+		assert(noteApp.allNotes.author === undefined);
 	})
 
 	it('increments noteApp.length if created',function(){
@@ -52,16 +59,20 @@ describe('Note application increments number of notes as notes are added ',funct
 		assert(result.length > 0);
 	})
 
-	it('deletes note content @ index of the allNotes list',function(){
+
+	it('deletes note content @ index of the allNotes list',function(){		
+		var deleted = noteApp.delete(2);		
+		assert(deleted === 'note deleted successfully!');
+	})
+
+	it('should edit note at a particular index edited',function(){
 		var note = new Note(1,'obinna','i have a dream');
-		noteApp.create(note);		
-		assert(noteApp.delete(1) === 'Deleted successfully');
+		noteApp.create(note);	
+		assert(noteApp.edit(1,'my life') === 'Content edited sucessfully');
 	})
 
 
-	it('should return true if created',function(){
-		assert(noteApp.edit("i have a dream") === true);
-	})
+
 })
 
 
