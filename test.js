@@ -45,10 +45,19 @@ describe('Note application increments number of notes as notes are added ',funct
 		var get = noteApp.get(2);		
 		assert(get.id === 2);		
 	})
-	it('should return true if created',function(){
-
-		assert(noteApp.delete("i have a dream") === true);
+	it('Search the note list for a particular content the search param matches',function(){		
+		var note = new Note(1,'obinna','i have a dream');
+		noteApp.create(note);
+		var result = noteApp.search('i have a dream');
+		assert(result.length > 0);
 	})
+
+	it('deletes note content @ index of the allNotes list',function(){
+		var note = new Note(1,'obinna','i have a dream');
+		noteApp.create(note);		
+		assert(noteApp.delete(1) === 'Deleted successfully');
+	})
+
 
 	it('should return true if created',function(){
 		assert(noteApp.edit("i have a dream") === true);
