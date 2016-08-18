@@ -22,7 +22,7 @@ describe('Note application increments number of notes as notes are added ',funct
 		assert(noteApp.allNotes.length === 0);
 	})
 
-	it('should return true if created',function(){
+	it('increments noteApp.length if created',function(){
 		//create a note and pass it to create method
 		//assert that length of allNotes array is 1
 		var note = new Note(1,'obinna','i have a dream');
@@ -30,7 +30,7 @@ describe('Note application increments number of notes as notes are added ',funct
 		assert( noteApp.allNotes.length === 1);
 	})
 
-	it('should return true if created',function(){
+	it('increments array by 1',function(){
 		assert(noteApp.allNotes.length === 1);
 	})
 
@@ -41,10 +41,12 @@ describe('Note application increments number of notes as notes are added ',funct
 		//assert that the id of the returned note object equals the id passed when creating nolte obj
 		var note = new Note(1,'obinna','i have a dream');
 		noteApp.create(note);
-		assert(noteApp.allNotes.length === 1);
-		
+		assert(noteApp.allNotes.length === 2);
+		var get = noteApp.get(2);		
+		assert(get.id === 2);		
 	})
 	it('should return true if created',function(){
+
 		assert(noteApp.delete("i have a dream") === true);
 	})
 
