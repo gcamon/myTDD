@@ -66,9 +66,10 @@ describe('Note application increments number of notes as notes are added ',funct
 	})
 
 	it('should edit note at a particular index edited',function(){
-		var note = new Note(1,'obinna','i have a dream');
-		noteApp.create(note);	
-		assert(noteApp.edit(1,'my life') === 'Content edited sucessfully');
+		noteApp.edit(2,'my life');
+		var edited = noteApp.allNotes[0].content;
+		console.log(edited) 		
+		assert( edited === 'my life');
 	})
 
 
