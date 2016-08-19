@@ -65,10 +65,9 @@ describe('Note application increments number of notes as notes are added ',funct
 		assert(deleted === 'note deleted successfully!');
 	})
 
-	it('should edit note at a particular index edited',function(){
+	it('should edit note at a particular id of the note content',function(){
 		noteApp.edit(2,'my life');
-		var edited = noteApp.allNotes[0].content;
-		console.log(edited) 		
+		var edited = noteApp.allNotes[0].content;		
 		assert( edited === 'my life');
 	})
 
