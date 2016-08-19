@@ -20,8 +20,6 @@ describe('Note application increments number of notes as notes are added ',funct
 	noteApp.allNotes = [];	
 
 	it('increments noteApp.length if created',function(){
-		//create a note and pass it to create method
-		//assert that length of allNotes array is 1
 		var note = new Note(1,'obinna','i have a dream');
 		noteApp.create(note);
 		assert( noteApp.allNotes.length === 1);
@@ -29,10 +27,6 @@ describe('Note application increments number of notes as notes are added ',funct
 	
 
 	it('gets note contents by id',function(){
-		//create a note and pass it to create method
-		//assert that length of allNotes array is 1
-		//make a call to get method, so as to return a note object
-		//assert that the id of the returned note object equals the id passed when creating nolte obj
 		var note = new Note(1,'obinna','i have a dream');
 		noteApp.create(note);
 		assert(noteApp.allNotes.length === 2);
