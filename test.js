@@ -9,25 +9,15 @@ describe('Notes creation works correctly',function(){
 	it('Should make sure the correct type of input is passed.',function(){					
 		assert(noteContent.id === 1);
 		assert(noteContent.author === 'obinna');
-	})
-
-	it('should identify type of input', function(){
 		assert(typeof noteContent.id === 'number');
 		assert(typeof noteContent.content === 'string');
 	})
+
 })
 
 describe('Note application increments number of notes as notes are added ',function(){
 	var noteApp = new NoteApp('obinna');		
-	noteApp.allNotes = [];
-
-	it('identifies the note list is empty',function(){		
-		assert(noteApp.allNotes.length === 0);
-	})
-
-	it('identifies the note list is empty',function(){		
-		assert(noteApp.allNotes.author === undefined);
-	})
+	noteApp.allNotes = [];	
 
 	it('increments noteApp.length if created',function(){
 		//create a note and pass it to create method
@@ -36,10 +26,7 @@ describe('Note application increments number of notes as notes are added ',funct
 		noteApp.create(note);
 		assert( noteApp.allNotes.length === 1);
 	})
-
-	it('increments array by 1',function(){
-		assert(noteApp.allNotes.length === 1);
-	})
+	
 
 	it('gets note contents by id',function(){
 		//create a note and pass it to create method
