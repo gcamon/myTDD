@@ -33,11 +33,12 @@ describe('Note application increments number of notes as notes are added ',funct
 		var get = noteApp.get(2);		
 		assert(get.id === 2);		
 	})
+	
 	it('Search the note list for a particular content the search param matches',function(){		
 		var note = new Note(1,'obinna','i have a dream');
 		noteApp.create(note);
 		var result = noteApp.search('i have a dream');
-		assert(result.length > 0);
+		assert(result.length > 1);
 	})
 
 
