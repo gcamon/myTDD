@@ -42,9 +42,11 @@ describe('Note application increments number of notes as notes are added ',funct
 	})
 
 
-	it('deletes note content @ index of the allNotes list',function(){		
-		var deleted = noteApp.delete(2);		
-		assert(deleted === 'note deleted successfully!');
+	it('deletes note content @ index of the allNotes list',function(){
+		var originalLength = noteApp.allNotes.length;		
+		noteApp.delete(2);
+		var afterDelete = noteApp.allNotes.length;		
+		assert(originalLength !== afterDelete);
 	})
 
 	it('should edit note at a particular id of the note content',function(){
